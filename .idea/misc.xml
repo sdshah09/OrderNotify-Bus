@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/discovery-service/pom.xml" />
         <option value="$USER_HOME$/Downloads/discovery-service/pom.xml" />
         <option value="$USER_HOME$/Downloads/notification-service/pom.xml" />
+        <option value="$PROJECT_DIR$/notification-service/discovery-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
