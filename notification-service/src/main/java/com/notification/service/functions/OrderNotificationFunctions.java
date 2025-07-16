@@ -15,7 +15,7 @@ public class OrderNotificationFunctions {
             //process
             System.out.println("Sending noitifcation to user");
             logicToSendEmailAndMessageToUser(orderDetail.getEmail(), orderDetail.getUserPhone());
-            return "order notification send to user";
+            return orderDetail.getOrderId();
         });
     }
 

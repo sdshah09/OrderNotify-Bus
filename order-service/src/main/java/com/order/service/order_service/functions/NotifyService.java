@@ -9,8 +9,13 @@ import java.util.function.Consumer;
 public class NotifyService {
     @Bean
     public Consumer<String> consumeAck() {
-        return (str) -> {
-            System.out.println(str);
+        return (orderId) -> {
+            updateOrder();
+            System.out.println("Ack Notification Status " + orderId);
         };
+    }
+
+    private void updateOrder() {
+        // order database update logic
     }
 }
