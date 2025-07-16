@@ -2,6 +2,8 @@ package com.order.service.order_service.controllers;
 
 import com.order.service.order_service.OrderDetail;
 import com.order.service.order_service.services.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +26,16 @@ public class OrderController {
         return ResponseEntity.ok("Order Created");
     }
 
-    private void orderCreatedNotification(OrderDetail order) {
+    @Autowired
+    private StreamBridge streamBridge;
 
+    private void orderCreatedNotification(OrderDetail order) {
+        boolean send = streamBridge.send("orderCreatedEvent-out-0", order);
+        if(send) {
+            System.out.println("Order Success Event is successfully send to notification service");
+        } else{
+            System.out.println("Event failed");
+        }
     }
 
 }
