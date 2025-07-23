@@ -1,4 +1,4 @@
-# notification-order-microservice-system
+# OrderNotify Bus
 
 This project is a demo to understand event-driven architecture in microservices using Spring Boot, Spring Cloud Stream, and RabbitMQ.
 
